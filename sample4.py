@@ -5,10 +5,10 @@ import pandas as pd
 # MySQL 서버에 연결하는 함수
 def get_data_from_db(query, params=None, single_column=False):
     mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="tim5312+@@705300",
-        database="shopping_db"
+        host=st.secrets["mysql"]["localhost"],
+        user=st.secrets["mysql"]["root"],
+        password=st.secrets["mysql"]["tim5312+@@705300"],
+        database=st.secrets["mysql"]["shopping_db"]
     )
     mycursor = mydb.cursor()
     mycursor.execute(query, params)
